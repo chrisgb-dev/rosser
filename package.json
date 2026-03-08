@@ -10,27 +10,27 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@heroicons/vue": "^2.1.5",
-    "@nuxt/content": "^3.7.1",
-    "@nuxt/image": "^1.8.1",
-    "@nuxtjs/robots": "^5.1.0",
-    "@nuxtjs/sitemap": "^7.0.0",
+    "@heroicons/vue": "^2.2.0",
+    "@nuxt/content": "^3.12.0",
+    "@nuxt/image": "^2.0.0",
+    "@nuxtjs/robots": "^5.7.1",
+    "@nuxtjs/sitemap": "^7.6.0",
     "@tailwindcss/vite": "^4.2.1",
-    "autoprefixer": "^10.4.21",
-    "better-sqlite3": "^12.2.0",
-    "nuxt-seo-utils": "^6.0.4",
+    "autoprefixer": "^10.4.27",
+    "better-sqlite3": "^12.6.2",
+    "nuxt-seo-utils": "^7.0.19",
     "pocketbase": "^0.26.8",
-    "remark-gfm": "^4.0.0",
-    "remark-reading-time": "^2.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-reading-time": "^2.0.2",
     "remark-smartypants": "^3.0.2",
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
-    "@nuxthub/core": "^0.10.3",
-    "daisyui": "^5.1.13",
-    "nuxt": "^4.1.2",
-    "nuxt-umami": "^3.2.0",
-    "sass": "^1.77.8",
-    "wrangler": "^4.56.0"
+    "@nuxthub/core": "^0.10.7",
+    "daisyui": "^5.5.19",
+    "nuxt": "^4.3.1",
+    "nuxt-umami": "^3.2.1",
+    "sass": "^1.97.3",
+    "wrangler": "^4.71.0"
   }
 }
