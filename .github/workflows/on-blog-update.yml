@@ -3,28 +3,42 @@ name: Build on Blog Update
 on:
   repository_dispatch:
     types: [blog-updated]
+  workflow_dispatch:
 
 jobs:
-  deploy-cloudflare-worker:
-    name: "Deploy to Cloudflare Workers"
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'npm'
+      - run: pnpm install
+      - run: pnpm build
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Publish to Cloudflare Workers
+      - name: Deploy worker
         run: npx wrangler deploy
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+# jobs:
+#   deploy-cloudflare-worker:
+#     name: "Deploy to Cloudflare Workers"
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 22
+#           cache: 'npm'
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Build project
+#         run: npm run build
+
+#       - name: Publish to Cloudflare Workers
+#         run: npx wrangler deploy
+#         env:
+#           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
