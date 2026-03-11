@@ -18,5 +18,5 @@ Outside writing, I am a martial artist, with training in Taekwondo, Boxing, Kara
 
 Originally from Wales, I emigrated to Australia as a child. I now live in Melbourne with my wife, three children, and two cats.
 
-You can find my writing on [Substack](https://chrisrosser.substack.com) and Medium](https://chrisrosser.medium.com). I don't use social media.
+You can find my writing on [Substack](https://chrisrosser.substack.com) and [Medium](https://chrisrosser.medium.com). I don't use social media.
 
