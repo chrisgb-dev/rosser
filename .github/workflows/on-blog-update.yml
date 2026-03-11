@@ -12,11 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - run: pnpm install
       - run: pnpm build
 
       - name: Deploy worker
         run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
 # jobs:
 #   deploy-cloudflare-worker:
