@@ -1,0 +1,26 @@
+name: Rebuild and Deploy
+
+on:
+  repository_dispatch:
+    types: [blog-updated]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - run: pnpm install
+      - run: pnpm build
+
+      - name: Deploy worker
+        run: npx wrangler deploy
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
