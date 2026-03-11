@@ -4,6 +4,7 @@
       {{ page.title }}
     </h1>
 
+
     <div class="text-600 text-sm mb-3">
       <span>Published </span>
       <span class="font-bold">{{ formatDate(page.meta.date) }}</span>
@@ -47,7 +48,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: page.value ? page.value.description : 'Chris Rosser, author, technical writer and developer living in Melbourne, Australia'
+      content: page.value && page.value.description ? page.value.description : 'Chris Rosser, author, technical writer and developer living in Melbourne, Australia'
     }
   ]
 })

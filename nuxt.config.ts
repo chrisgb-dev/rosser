@@ -35,7 +35,6 @@ export default defineNuxtConfig({
       '@nuxt/content',
       '@nuxtjs/robots',
       '@nuxtjs/sitemap',
-      "nuxt-seo-utils",
       '@nuxt/image',
       '@nuxthub/core',
       'nuxt-umami'],
