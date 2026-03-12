@@ -25,8 +25,9 @@
                                         {{ post.title }}
                                     </h2>
                                     <div class="flex flex-wrap">
-                                        {{ post.tags }}
+                                        <span v-for="tag in post.tags" :key="tag" class="badge badge-accent">{{ tag }}</span>
                                     </div>
+                                    <div>{{ post.meta.readingTime.text }}</div>
                                 </div>
                                 <div class="prose max-w-none0 text-white">
                                     {{ post.description }}
