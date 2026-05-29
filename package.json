@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -13,6 +13,7 @@
     "@heroicons/vue": "^2.2.0",
     "@nuxt/content": "^3.12.0",
     "@nuxt/image": "^2.0.0",
+    "@nuxt/ui": "^4.8.0",
     "@nuxtjs/robots": "^5.7.1",
     "@nuxtjs/sitemap": "^7.6.0",
     "@tailwindcss/vite": "^4.2.1",
@@ -23,10 +24,11 @@
     "remark-gfm": "^4.0.1",
     "remark-reading-time": "^2.0.2",
     "remark-smartypants": "^3.0.2",
-    "tailwindcss": "^4.2.1"
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
-    "@nuxthub/core": "^0.10.7",
+    "@nuxt/fonts": "^0.14.0",
+    "@tailwindcss/typography": "^0.5.19",
     "daisyui": "^5.5.19",
     "nuxt": "^4.3.1",
     "nuxt-umami": "^3.2.1",

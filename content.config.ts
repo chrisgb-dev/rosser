@@ -36,22 +36,30 @@ export default defineContentConfig({
     //     url: z.string()
     //   })
     // }),
-    blog: defineCollection({
+    journal: defineCollection({
       type: 'page',
       source: {
-        repository: 'https://github.com/foss-scribe/crnet-blog/tree/master',
+        repository: 'https://github.com/chrisgb-dev/crnet-blog/tree/master',
         include: "posts/**/*.md",
       },
       schema: z.object({
         title: z.string(),
         date: z.string(),
         tags: z.array(z.string()),
+        cover: z.string(),
+        description: z.string(),
+        readingTime: z.object({
+          text: z.string(),
+          minutes: z.number(),
+          time: z.number(),
+          words: z.number()
+        })
       })
     }),
     alashiya: defineCollection({
       type: 'page',
       source: {
-        repository: 'https://github.com/foss-scribe/alashiya/tree/master',
+        repository: 'https://github.com/chrisgb-dev/alashiya/tree/master',
         include: "docs/**/*",
       }
     }),

@@ -1,15 +1,10 @@
 <template>
-    <ul class="text-xl list-disc ml-12 mb-2">
+    <ul>
       <slot />
     </ul>
   </template>
 
 <style scoped lang="scss">
-
-ul {
-    font-family: "Crimson Text";
-
-}
 
 ul.contains-task-list {
     list-style-type: none;

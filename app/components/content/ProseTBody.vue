@@ -1,5 +1,5 @@
 <template>
-    <tbody class="text-primary">
+    <tbody>
       <slot />
     </tbody>
   </template>

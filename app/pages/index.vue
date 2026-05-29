@@ -1,12 +1,24 @@
 <template>
-    <Meander />
-    <div class="mb-5 hero md:min-64">
-        <div class="p-8 text-center">
-            <div class="text-6xl md:text-9xl font-bold mb-1 font-display">Chris Rosser</div>
-            <p class="mt-1 mb-3 line-height-3 text-center mx-auto text-4xl md:text-6xl" style="max-width:500px">Fantasy Author</p>
+    <div class="my-24">
+        <div class="p-8 max-w-3xl">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] tracking-tight mb-8 font-display uppercase text-primary">Chris Rosser</h1>
+            <hr class="w-24 border-t-2 border-primary rounded-full my-8 opacity-60" />
+            <p class="line-height-3 text-2xl">Novels, essays, and serialised fiction<br />from the edge of myth, history and memory</p>
+
+            <div class="mt-12 flex flex-col sm:flex-row gap-4">
+                <UButton size="xl">Read the journal</UButton>
+                <UButton size="xl" variant="outline">Explore the fiction</UButton>
+            </div>
         </div>
     </div>
-    <Meander />
+        
+    <div>
+        Big banner for the current project
+    </div>
+
+    <div>
+        Grid of recent journal posts.
+    </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2">
         
@@ -41,30 +53,3 @@ const { data: books } = await useAsyncData('books', () => {
 })
 
 </script>
-
-<style lang="scss" scoped>
-
-html,
-body,
-.p-component,
-p {
-    font-family: "Crimson Text" !important;
-}
-
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6,
-// .heading {
-//     font-family: "IM Fell English SC" !important;
-// }
-
-.hero {
-    // background-image: url("/images/hero-bg.webp");
-    background-position: center;
-    background-size: cover;
-    background-repeat: repeat;
-}
-</style>

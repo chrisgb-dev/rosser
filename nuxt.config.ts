@@ -2,25 +2,24 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-12-19",
+  ssr: true,
   nitro: {
-    preset: "cloudflare_module",
+    preset:process.env.NITRO_PRESET || undefined,
+    // preset: "cloudflare_module",
     cloudflare: {
       deployConfig: true,
       nodeCompat: true
-    }
+    },
   },
-  ssr: false,
+  css: ["~/assets/main.css"],
   app: {
     head: {
       title: 'Chris Rosser'
     }
   },
-  vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+  ui: {
+    prose: true
   },
-  css: ["~/assets/main.css"],
   content: {
     build: {
       markdown: { 
@@ -31,13 +30,7 @@ export default defineNuxtConfig({
     }
   },
   devtools: { enabled: true },
-  modules: [
-      '@nuxt/content',
-      '@nuxtjs/robots',
-      '@nuxtjs/sitemap',
-      '@nuxt/image',
-      '@nuxthub/core',
-      'nuxt-umami'],
+  modules: ['@nuxt/content', '@nuxtjs/robots', '@nuxtjs/sitemap', 'nuxt-umami', '@nuxt/ui'],
   umami: {
     id: "5a9ba10a-7814-41e2-a7b8-538b024dec5b",
     host: "https://cloud.umami.is",

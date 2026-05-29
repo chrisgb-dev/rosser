@@ -1,11 +1,13 @@
 <template>
-  <main class="lg:container mx-auto px-2 xl:px-24">
-    <SiteNav />
-    <BreadCrumbs />
-    <NuxtPage />
-    <Meander />
-    <SiteFooter />
-  </main>
+    <UApp>
+      <UMain>
+      <SiteNav />
+      <BreadCrumbs />
+      <NuxtPage />
+      <SiteFooter />
+    </UMain>
+    </UApp>
+
 </template>
 
 

@@ -19,29 +19,31 @@
 
     <div class="p-2 md:p-6">
       <div class="grid grid-cols-12 gap-6 items-start">
-        <article :class="`col-span-12 ${page.body.toc.links && page.body.toc.links.length > 1 ? 'md:col-span-8' : null} p-2`">
+        <article
+          :class="`col-span-12 ${page.body.toc.links && page.body.toc.links.length > 1 ? 'md:col-span-8' : null} p-2`">
           <ContentRenderer :value="page" />
         </article>
         <aside v-if="page.body.toc.links && page.body.toc.links.length > 1" class="hidden md:block md:col-span-4 p-2">
           <PageToc :toc="page.body.toc" />
-          
+
         </aside>
       </div>
     </div>
   </div>
+
 </template>
 
 <script setup>
-import { formatDate } from '@/utils/tools.js';
 
 const route = useRoute()
 const { data: page } = await useAsyncData(route.path, () => {
-  if (route.path.startsWith('/posts')) {
+  if (route.path.startsWith('/journal')) {
     return queryCollection('blog').path(route.path).first()
   } else {
     return queryCollection('content').path(route.path).first()
   }
 })
+
 
 useHead({
   title: page.value ? `${page.value.title} | Chris Rosser` : 'Chris Rosser',
@@ -53,13 +55,3 @@ useHead({
   ]
 })
 </script>
-
-<style lang="scss">
-
-h2, h3, h4, h5, h6 {
-a:any-link {
-  text-decoration: none;
-  color: var(--text-color);
-}
-}
-</style>
