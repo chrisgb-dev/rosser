@@ -5,6 +5,7 @@ description: Mistress of Skeinhold, by Chris Rosser, is a grim dark novella of t
 subtitle: A novella of the Weaver Cycle
 banner: book-bg-mistress.webp
 cover: cover-mos.webp
+genre: Dark Fantasy
 type: book
 order: 2
 buy_links:

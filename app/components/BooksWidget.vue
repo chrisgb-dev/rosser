@@ -1,22 +1,24 @@
 <template>
-  <div v-if="props.books">
-    <div class="p-2 md:p-6 text-center">
-      <div class="text-4xl md:text-6xl heading mb-6">Books by Chris Rosser</div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-2 md:p-4">
-        <div v-for="book in props.books" :key="book.path">
-          <NuxtLink :to="book.path">
-            <img :src="`/images/books/${book.meta.cover}`"
-              class="w-full h-auto rounded-xl transition-all duration-300 hover:translate-y-1 hover:shadow-xl" />
-          </NuxtLink>
+  <div v-if="books" class="p-2 md:p-12">
+    <div class="p-2 md:p-24 text-center">
+      <div class="flex justify-between">
+        <div class="font-display text-xl md:text-4xl heading mb-6">Selected Works</div>
+        <div>
+          <UButton variant="ghost" size="sm" class="mt-4" trailingIcon="i-lucide-arrow-right" to="/books">View all
+            projects</UButton>
         </div>
       </div>
+      <div class="grid border-collapse lg:grid-cols-3">
+        <BookCard v-for="book in books" :key="book.path" :book="book" />
+      </div>
+
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  books: Array<any>
-}>()
+const { data: books } = await useAsyncData('books', () => {
+  return queryCollection('books').limit(3).all()
+})
 
 </script>

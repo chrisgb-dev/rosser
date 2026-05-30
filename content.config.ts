@@ -6,36 +6,38 @@ export default defineContentConfig({
       type: 'page',
       source: '*.md',
       schema: z.object({
-        type: z.string()
+        title: z.string(),
+        date: z.string(),
+        type: z.string(),
+        readingTime: z.object({
+          text: z.string(),
+          minutes: z.number(),
+          time: z.number(),
+          words: z.number()
+        })
       })
     }),
     books: defineCollection({
       type: 'page',
       source: 'books/*.md',
       schema: z.object({
+        cover: z.string(),
+        title: z.string(),
         type: z.string(),
         order: z.number(),
         description: z.string(),
+        genre: z.string(),
       })
     }),
-    readingList: defineCollection({
+    writingList: defineCollection({
       type: 'data',
-      source: 'data/reading_list.json',
+      source: 'data/writing_list.json',
       schema: z.object({
         title: z.string(),
-        cover: z.string(),
-        status: z.string()
+        progress: z.number(),
+        url: z.string()
       })
     }),
-    // writingList: defineCollection({
-    //   type: 'data',
-    //   source: 'data/writing_list.json',
-    //   schema: z.object({
-    //     title: z.string(),
-    //     progress: z.number(),
-    //     url: z.string()
-    //   })
-    // }),
     journal: defineCollection({
       type: 'page',
       source: {
@@ -45,6 +47,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         date: z.string(),
+        category: z.string(),
         tags: z.array(z.string()),
         cover: z.string(),
         description: z.string(),

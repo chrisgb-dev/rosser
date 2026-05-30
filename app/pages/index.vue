@@ -6,8 +6,8 @@
             <p class="line-height-3 text-2xl">Novels, essays, and serialised fiction<br />from the edge of myth, history and memory</p>
 
             <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                <UButton size="xl">Read the journal</UButton>
-                <UButton size="xl" variant="outline">Explore the fiction</UButton>
+                <UButton size="xl" to="/journal">Read the journal</UButton>
+                <UButton size="xl" variant="outline" to="/books">Explore the stories</UButton>
             </div>
         </div>
     </div>
@@ -16,14 +16,10 @@
         Big banner for the current project
     </div>
 
-    <div>
-        Grid of recent journal posts.
-    </div>
-
+    <PostsWidget />
+    <BooksWidget />
     <div class="grid grid-cols-1 lg:grid-cols-2">
         
-        <PostsWidget />
-        <BooksWidget v-if="books" :books="books" />
     </div>
 
     <div class="grid grid-cols-12  gap-6 p-2 md:p-12">
@@ -31,11 +27,11 @@
             <CurrentlyWritingWidget class="mb-6" />
             <CurrentlyReadingWidget />
         </div>
-        <div class="col-span-12 lg:col-span-6">
+        <!-- <div class="col-span-12 lg:col-span-6">
             <div class="border-2 border-md rounded-md p-2 md:p-12">
                 <ContentRenderer v-if="doc" :value="doc" />
             </div>
-        </div>
+        </div> -->
 
     </div>
 
@@ -48,8 +44,6 @@ const { data: doc } = await useAsyncData(route.path, () => {
     return queryCollection('content').path(route.path).first()
 })
 
-const { data: books } = await useAsyncData('books', () => {
-    return queryCollection('books').all()
-})
+
 
 </script>

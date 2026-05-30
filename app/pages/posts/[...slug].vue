@@ -11,9 +11,9 @@
     />
 
     <!-- Decorative vertical line -->
-    <div
+    <!-- <div
       class="pointer-events-none absolute right-[28%] top-0 hidden h-full w-px bg-[#d8cfbf] dark:bg-white/10 xl:block"
-    />
+    /> -->
 
     <!-- Main layout -->
     <main
@@ -30,8 +30,7 @@
 
         <!-- Title -->
         <h1
-          class="max-w-4xl font-serif text-6xl leading-[0.95] tracking-tight md:text-7xl"
-          style="font-family: 'Spectral', serif"
+          class="max-w-4xl font-display text-6xl leading-[0.95] tracking-tight md:text-7xl"
         >
           {{ page.title }}
         </h1>
@@ -43,15 +42,14 @@
 
         <!-- Subtitle -->
         <p
-          class="mt-10 max-w-2xl text-3xl italic leading-relaxed text-[#52606d] dark:text-[#9ca3af]"
-          style="font-family: 'Spectral', serif"
+          class="mt-10 max-w-2xl text-3xl italic leading-relaxed text-muted font-display"
         >
           {{ page.description }}
         </p>
 
         <!-- Meta -->
         <div
-          class="mt-10 flex flex-wrap items-center gap-4 text-sm text-[#52606d] dark:text-[#9ca3af]"
+          class="mt-10 flex flex-wrap items-center gap-4 text-sm text-muted dark:text-[#9ca3af]"
         >
           <span>{{ formatDate(page.date) }}</span>
           <span class="opacity-40">•</span>
@@ -69,7 +67,7 @@
           />
 
           <figcaption
-            class="mt-4 text-sm italic text-[#52606d] dark:text-[#9ca3af]"
+            class="mt-4 text-sm italic text-muted dark:text-[#9ca3af]"
           >
             Morning light in the Otways, Victoria.
           </figcaption>
@@ -120,7 +118,7 @@
           <span
             v-for="tag in page.tags"
             :key="tag"
-            class="rounded-full border border-[#d8cfbf] px-4 py-2 text-sm text-[#52606d] transition-colors hover:border-[#b08968] hover:text-[#1f2933] dark:border-white/10 dark:text-[#9ca3af] dark:hover:border-[#d0b089] dark:hover:text-white uppercase"
+            class="rounded-full border border-[#d8cfbf] px-4 py-2 text-sm text-muted transition-colors hover:border-[#b08968] hover:text-[#1f2933] dark:border-white/10 dark:text-[#9ca3af] dark:hover:border-[#d0b089] dark:hover:text-white uppercase"
           >
             {{ tag }}
           </span>
@@ -149,14 +147,14 @@
 
             <a
               href="#"
-              class="block text-[#52606d] transition-colors hover:text-[#486357] dark:text-[#9ca3af] dark:hover:text-[#8fb8a7]"
+              class="block text-muted transition-colors hover:text-[#486357] dark:text-[#9ca3af] dark:hover:text-[#8fb8a7]"
             >
               Story as inheritance
             </a>
 
             <a
               href="#"
-              class="block text-[#52606d] transition-colors hover:text-[#486357] dark:text-[#9ca3af] dark:hover:text-[#8fb8a7]"
+              class="block text-muted transition-colors hover:text-[#486357] dark:text-[#9ca3af] dark:hover:text-[#8fb8a7]"
             >
               The responsibility of telling
             </a>
@@ -198,7 +196,7 @@
                 </h4>
 
                 <p
-                  class="mt-3 text-sm text-[#52606d] dark:text-[#9ca3af]"
+                  class="mt-3 text-sm text-muted dark:text-[#9ca3af]"
                 >
                   {{ post.date }}
                 </p>

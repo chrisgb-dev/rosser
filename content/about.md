@@ -4,7 +4,7 @@ description: "About Chris Rosser, author, technical writer and developer living 
 date: 2026-02-07
 ---
 
-I wrote my first fantasy story when I was seven or eight years old—nearly forty years ago. The details are hazy, but the impulse is not. It was inspired by the first computer game I ever played, and it set a direction that has shaped my creative, personal, and professional life ever since. Whether writing was something innate or something learned is difficult to say; what matters is that it has remained a constant.
+I wrote my first story when I was seven or eight years old—nearly forty years ago. The details are hazy, but the impulse is not. It was inspired by the first computer game I ever played, and it set a direction that has shaped my creative, personal, and professional life ever since. Whether writing was something innate or something learned is difficult to say; what matters is that it has remained a constant.
 
 I published my [first fantasy novella](/books/mistress-of-skeinhold) in 2018, followed by a [second](/books/cadocs-contract) eighteen months later. That early momentum collided with the realities of family life, prolonged COVID lockdowns, and professional demands. In 2021, I returned to long-form fiction by serialising a novel titled _The Codex of Destiny_. Although that project stalled, it remains close to my heart, and I intend to return to it with renewed focus.
 

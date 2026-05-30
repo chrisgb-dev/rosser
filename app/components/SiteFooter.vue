@@ -54,8 +54,8 @@ const exploreNavItems: NavigationMenuItem[] = [
 
     },
     {
-        label: 'Fiction',
-        to: '',
+        label: 'Books',
+        to: '/books',
     },
     {
         label: 'Reading',

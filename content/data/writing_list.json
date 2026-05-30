@@ -1,13 +1,14 @@
-[
-    {
-        "title" : "A Shade of Flesh and Bone",
-        "progress" : 70,
-        "url" : "/books/shade-flesh-bone"
-    },
-    {
-        "title" : "The Codex of Destiny",
-        "progress" : 30,
-        "url" : "/books/codex-of-destiny"
-    }
-
-]
+{
+    "books": [
+        {
+            "title": "A Shade of Flesh and Bone",
+            "progress": 70,
+            "url": "/books/shade-flesh-bone"
+        },
+        {
+            "title": "The Codex of Destiny",
+            "progress": 30,
+            "url": "/books/codex-of-destiny"
+        }
+    ]
+}

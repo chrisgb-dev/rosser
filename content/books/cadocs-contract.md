@@ -7,6 +7,7 @@ banner: book-bg-cadocs.webp
 cover: cover-cadocs.webp
 type: book
 order: 0
+genre: Dark Fantasy
 buy_links:
     -
         label: Amazon US
