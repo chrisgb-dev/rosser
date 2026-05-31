@@ -2,15 +2,13 @@
     <div class="
         flex
         flex-col
+        lg:flex-row
+        items-center
         gap-6
         p-8
         border
         border-stone-300/70
 
-        <!-- bg-[#f6f1e7]
-        dark:bg-[#111827] -->
-
-        sm:flex-row
     ">
         <NuxtImg 
             :src="`/images/books/${book.cover}`"

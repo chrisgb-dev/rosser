@@ -29,6 +29,11 @@ export default defineNuxtConfig({
       }
     }
   },
+  runtimeConfig: {
+    pbUrl: '',
+    pbUsername: '',
+    pbPassword: '',
+  },
   devtools: { enabled: true },
   modules: [
     // 'nuxt-content-assets',

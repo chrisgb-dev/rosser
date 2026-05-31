@@ -1,6 +1,6 @@
 <template>
-  <div v-if="books" class="p-2 md:p-12">
-    <div class="p-2 md:p-24 text-center">
+  <div v-if="books">
+    <div class="text-center">
       <div class="flex justify-between">
         <div class="font-display text-xl md:text-4xl heading mb-6">Selected Works</div>
         <div>

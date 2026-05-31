@@ -22,7 +22,7 @@
         <h1
           class="font-display text-5xl leading-tight tracking-tight md:text-6xl"
         >
-          Essays, field notes and fragments from the archive.
+          Essays, field notes and thoughts on writing
         </h1>
 
         <p

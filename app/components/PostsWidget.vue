@@ -1,6 +1,6 @@
 <template>
-  <div v-if="posts" class="p-2 md:p-12">
-    <div class="p-2 md:p-24 text-center">
+  <div v-if="posts">
+    <div class="text-center">
       <div class="flex justify-between">
         <div class="font-display text-xl md:text-4xl heading mb-6">Recent Journal Entries</div>
         <div>

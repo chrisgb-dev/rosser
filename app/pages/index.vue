@@ -1,40 +1,43 @@
 <template>
-    <div class="my-24">
-        <div class="p-8 max-w-3xl">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] tracking-tight mb-8 font-display uppercase text-primary">Chris Rosser</h1>
-            <hr class="w-24 border-t-2 border-primary rounded-full my-8 opacity-60" />
-            <p class="line-height-3 text-2xl">Novels, essays, and serialised fiction<br />from the edge of myth, history and memory</p>
+    <main class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div class="my-24">
+            <div class="max-w-3xl">
+                <h1
+                    class="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] tracking-tight mb-8 font-display uppercase">
+                    Chris Rosser</h1>
+                <hr class="w-24 border-t-2 border-primary rounded-full my-8 opacity-60" />
+                <p class="line-height-3 text-2xl">Novels, essays, and serialised fiction<br />from the edge of myth,
+                    history and memory</p>
 
-            <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                <UButton size="xl" to="/journal">Read the journal</UButton>
-                <UButton size="xl" variant="outline" to="/books">Explore the stories</UButton>
+                <div class="mt-12 flex flex-col sm:flex-row gap-4">
+                    <UButton size="xl" to="/journal">Read the journal</UButton>
+                    <UButton size="xl" variant="outline" to="/books">Explore the stories</UButton>
+                </div>
             </div>
         </div>
-    </div>
-        
-    <div>
-        Big banner for the current project
-    </div>
 
-    <PostsWidget />
-    <BooksWidget />
-    <div class="grid grid-cols-1 lg:grid-cols-2">
-        
-    </div>
+        <section class="pb-12">
+            Big banner for the current project
+        </section>
 
-    <div class="grid grid-cols-12  gap-6 p-2 md:p-12">
-        <div class="col-span-12 lg:col-span-6">
-            <CurrentlyWritingWidget class="mb-6" />
-            <CurrentlyReadingWidget />
-        </div>
-        <!-- <div class="col-span-12 lg:col-span-6">
-            <div class="border-2 border-md rounded-md p-2 md:p-12">
-                <ContentRenderer v-if="doc" :value="doc" />
+        <section class="pb-12">
+            <PostsWidget />
+        </section>
+
+        <section class="pb-12">
+            <BooksWidget />
+        </section>
+
+        <section class="pb-12">
+            <div class="font-display text-xl md:text-4xl heading mb-6">Now</div>
+            <div class="flex flex-col md:flex-row gap-12">
+                <CurrentlyWritingWidget class="w-full md:w-1/2" />
+                <CurrentlyReadingWidget class="w-full md:w-1/2" />
             </div>
-        </div> -->
+        </section>
 
-    </div>
 
+    </main>
 </template>
 
 <script setup lang="ts">

@@ -56,13 +56,13 @@
 <script setup lang="ts">
 defineProps<{
     post: {
-        title: String,
-        description: String,
-        date: String,
-        readingTime: Object,
-        image: String,
-        category: String,
-        path: String
+        title: string,
+        description: string,
+        date: string,
+        readingTime: object,
+        image: string,
+        category: string,
+        path: string
     }
 }>()
 </script>

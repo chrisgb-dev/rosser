@@ -1,11 +1,11 @@
 <template>
 
-<div v-if="writingList" class="p-6 shadow-2 border-round border-2 rounded-md border-surface surface-border">
-    <div class="text-3xl md:text-4xl font-bold mb-4">What I'm writing</div>
+<div v-if="writingList" class="p-6 shadow-2 border-round border rounded-md border-muted">
+    <div class="text-2xl md:text-3xl font-medium font-display mb-4">What I'm writing</div>
     <div v-for="book in writingList.meta.books" class="mb-4">
         <NuxtLink :to="book.url">
             <div class="font-semibold text-lg mt-0 mb-0">{{ book.title }}</div>
-            <progress class="progress w-full" :value="book.progress" max="100"></progress>
+            <UProgress v-model="book.progress" :max="100" size="lg" />
         </NuxtLink>
     </div>
 </div>

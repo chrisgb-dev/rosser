@@ -1,13 +1,5 @@
 <template>
-    <div class="text-center p-24 relative">
-        <div class="text-5xl mb-1 font-display font-medium uppercase">Reading list</div>
-
-        <p class="mt-4 mb-3 line-height-3 text-center mx-auto text-2xl" style="max-width:500px">Books I'm reading, have
-            read and want to read.</p>
-        <p class="mt-1 mb-3 line-height-3 text-center text-sm mx-auto" style="max-width:500px">Affiliate links in use.</p>
-    </div>
-
-    <section v-if="readingList" class="p-2 md:p-12 mx-auto max-w-5xl">
+    <section v-if="readingList" class="p-2 md:p-12">
 
         <div class="flex flex-col sm:flex-row gap-4 mb-6 mx-auto justify-center">
             <UButton variant="ghost" size="xl" @click="() => { searchStatus = null; searchString = null }">Show all
@@ -51,13 +43,8 @@
 </template>
 
 <script setup>
-import PocketBase from 'pocketbase';
 
-const pb = new PocketBase('https://pb-crnet.de1.53675094.xyz');
-
-const readingList = await pb.collection('books').getList(1, 999, {
-    expand: 'authors    '
-});
+const readingList = ref(null);
 
 const searchString = ref('');
 const searchStatus = ref('');
@@ -91,8 +78,22 @@ function filterBooks(books, searchString, searchStatus) {
     );
 }
 
+function getReadingList() {
+    return fetch('/api/reading-list')
+        .then(res => res.json())
+}
+
 useHead({
     title: 'Chris Rosser | Reading List'
+})
+
+onMounted(async () => {
+    try {
+        const data = await getReadingList();
+        readingList.value = data;
+    } catch (error) {
+        console.error('Error fetching reading list:', error);
+    }
 })
 
 </script>
