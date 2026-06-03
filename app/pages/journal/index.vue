@@ -39,7 +39,7 @@
         <div class="grid lg:grid-cols-2">
           <div class="relative min-h-85 overflow-hidden">
             <img
-              :src="posts[0].image"
+              :src="posts[0].image || '/images/yannick-pulver-hopX_jpVtRM-unsplash.jpg'"
               :alt="posts[0].title"
               class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             />

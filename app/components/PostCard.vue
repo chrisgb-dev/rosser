@@ -7,7 +7,7 @@
           <!-- Image -->
           <div class="relative aspect-16/10 overflow-hidden">
             <img
-              :src="post.image"
+              :src="post.image || '/images/yannick-pulver-hopX_jpVtRM-unsplash.jpg'"
               :alt="post.title"
               class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
             />
