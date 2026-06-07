@@ -33,22 +33,25 @@ export default defineNuxtConfig({
     pbUrl: '',
     pbUsername: '',
     pbPassword: '',
+    listmonkHost: '',
+    listmonkListId: '',
+    listmonkApiUser: '',
+    listmonkApiToken: ''
   },
   devtools: { enabled: true },
-  modules: [
-    // 'nuxt-content-assets',
-    '@nuxt/content',
-    '@nuxtjs/robots',
-    '@nuxtjs/sitemap',
-    'nuxt-umami',
-    '@nuxt/ui',
-    '@nuxt/image'
-  ],
+  modules: [// 'nuxt-content-assets',
+  '@nuxt/content', '@nuxtjs/robots', '@nuxtjs/sitemap', 'nuxt-umami', '@nuxt/ui', '@nuxt/image',],
   umami: {
     id: "5a9ba10a-7814-41e2-a7b8-538b024dec5b",
     host: "https://cloud.umami.is",
     autoTrack: true,
     ignoreLocalhost: true
+  },
+  site: {
+    name: 'Chris Rosser',
+    description: 'Chris Rosser is a novelist and essayist writing about myth, memory, history and power from Melbourne, Australia.',
+    url: 'https://chrisrosser.com',
+    image: 'https://chrisrosser.com/og-image.png'
   },
   routeRules: {
     '/posts/2018/08/11/review-omnioutliner/': { redirect: 'https://chrisrosser.medium.com/omnioutliner-review-68bd3b1e5735' },

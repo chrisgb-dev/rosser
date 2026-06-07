@@ -47,7 +47,7 @@
               :to="post.path"
               class="mt-8 inline-flex items-center gap-3 border-b border-[#8c6a43] pb-1 text-sm uppercase tracking-[0.18em] text-[#8c6a43] transition-colors hover:text-[#486357] dark:border-[#d0b089] dark:text-[#d0b089] dark:hover:text-[#8fb8a7]"
             >
-              Read Entry
+              Read
               <span aria-hidden="true">→</span>
             </NuxtLink>
           </div>
@@ -59,10 +59,12 @@ defineProps<{
         title: string,
         description: string,
         date: string,
-        readingTime: object,
         image: string,
         category: string,
-        path: string
+        path: string,
+        readingTime: {
+            text: string
+        }
     }
 }>()
 </script>

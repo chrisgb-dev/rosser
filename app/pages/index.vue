@@ -36,6 +36,10 @@
             </div>
         </section>
 
+        <section class="pb-12">
+            <Subscribe />
+        </section>
+
 
     </main>
 </template>

@@ -1,7 +1,7 @@
 ---
 title: A Shade of Flesh and Bone
 cover: cover-shade-flesh-bone.webp
-description: A Shade of Flesh of Bone is a grim fantasy novel by Chris Rosser.
+description: A quiet abbey is thrown into turmoil when the abbot takes a sudden fever.
 type: book
 genre: Dark Fantasy
 order: 2

@@ -32,7 +32,7 @@
         </p>
       </div>
 
-      <!-- Featured post -->
+      <!-- Latest post -->
       <article
         class="group mb-20 overflow-hidden rounded-4xl border border-[#d8cfbf] bg-black/3 transition-all duration-500 hover:-translate-y-1 hover:border-[#b08968]/40 dark:border-white/10 dark:bg-white/3"
       >
@@ -53,7 +53,7 @@
             <p
               class="mb-5 text-xs uppercase tracking-[0.24em] text-[#8c6a43] dark:text-[#d0b089]"
             >
-              Featured Essay
+              Latest Post
             </p>
 
             <h2
@@ -80,7 +80,7 @@
               :to="posts[0].path"
               class="mt-10 inline-flex w-fit items-center gap-3 border-b border-[#8c6a43] pb-1 text-sm uppercase tracking-[0.18em] text-secondary transition-colors hover:text-primary dark:border-[#d0b089] dark:text-[#d0b089]"
             >
-              Read Essay
+              Read
               <span aria-hidden="true">→</span>
             </NuxtLink>
           </div>

@@ -1,12 +1,10 @@
 ---
 title: What I'm doing now
-head:
-    title: "Chris Rosser | Now"
-    description: "What I'm working on now."
+description: "This is a now page, where I list my current projects and priorities."
 date: 2024-11-14
 ---
 
-_This is a [now](https://nownownow.com/about) page. Last updated 05/11/2024._
+_This is a [now](https://nownownow.com/about) page._
 
 ## Writing and world-building
 

@@ -57,8 +57,8 @@ const navItems = computed<NavigationMenuItem[]>(() => [
   },
   {
     label: 'Subscribe',
-    to: '/newsletter',
-    active: route.path.startsWith('/newsletter'),
+    to: '/subscribe',
+    active: route.path.startsWith('/subscribe'),
     class: 'font-display'
   },
 

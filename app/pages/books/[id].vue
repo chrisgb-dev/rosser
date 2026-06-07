@@ -1,59 +1,66 @@
 <template>
-    <div v-if="doc">
-        <div class="bg-cover text-white" :style="{'background-image': `url('/images/books/${doc.meta.banner}')`}">
-
-            <div class="grid grid-cols-12 p-2 lg:p-12 gap-6 items-start">
-
-                <div class="p-2 lg:p-12 col-span-12 md:col-span-4 text-center  bg-black/60 bg-opacity-60 rounded-md">
-                    <img :src="`/images/books/${doc.meta.cover}`" class="rounded-md border-2 w-full h-auto" />
-                    <div v-if="doc.meta.buy_links">
-                        <p class="text-lg font-bold my-4">Available at all good ebook retailers.</p>
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                            <button v-for="link in doc.meta.buy_links" class="btn btn-outline">
-                                <NuxtLink  :to="link.url" target="_blank" >
-                                    {{ link.label }}
-                                </NuxtLink>
-                            </button>
-                        </div>
-                    </div>
-                    <div v-else>
-                        <p class="text-lg font-bold my-4">Coming soon to all good ebook retailers.</p>
-                    </div>
-                </div>
-
-                <div class="p-2 lg:p-12 gap-12 col-span-12 md:col-span-8 bg-black/60 bgopacity-60 rounded-md">
-                    <div class="p-2 lg:p-12 mb-10">
-                        <div class="text-center mb-6">
-                            <div class="text-4xl md:text-6xl heading">{{ doc.title }}</div>
-                            <div class="text-2xl mb-4 heading">{{ doc.meta.subtitle }}</div>
-                            <div class="text-2xl md:text-4xl text-red-500 heading p-4">{{ doc.meta.tagline }}</div>
-                        </div>
-                        <ContentRenderer :value="doc" class="p-2" />
-                    </div>
-
-                    <div v-if="doc.reviews">
-                        <div class="text-4xl mb-6 text-center heading"> Praise for {{ doc.title }}</div>
-
-                        <div class="carousel w-full body-text">
-                            <div v-for="(item, index) in doc.reviews" :id="`slide${index}`" class="carousel-item relative w-full">
-                                <div class="text-center p-12 mx-12">
-                                    <div class="text-2xl">{{ item.text }}</div>
-                                    <div class="flex flex-col mt-6">
-                                        <span class="text-2xl">{{ item.author }}</span>
-                                        <span class="text-xl">{{item.author_about }}</span>
-                                    </div>
-                                </div>
-                                <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                                <a :href="`#slide${index - 1}`" class="btn btn-circle">❮</a>
-                                <a :href="`#slide${index + 1}`" class="btn btn-circle">❯</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <main v-if="doc" class="mx-auto max-w-7xl px-6 py-12 lg:px-8 text-center">
+        <div class="my-24">
+            <div class="">
+                <hr class="w-24 border-t-2 border-primary rounded-full my-8 opacity-60 mx-auto" />
+                <p class="mb-4 text-sm uppercase tracking-[0.28em] text-primary">{{ doc.genre }}</p>
+                <h1
+                    class="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] tracking-tight mb-8 font-display uppercase">
+                    {{ doc.title }}
+                </h1>
+                <p class="line-height-3 text-2xl">{{ doc.meta.subtitle }}</p>
+                <hr class="w-24 border-t-2 border-primary rounded-full my-8 opacity-60 mx-auto" />
             </div>
         </div>
-    </div>
+
+        <section>
+            <div class="flex flex-col md:flex-row gap-12 md:gap-24">
+                <div class="md:w-1/3">
+                    <img :src="`/images/books/${doc.cover}`" class="rounded-lg w-full h-auto" />
+                </div>
+                <div class="md:w-2/3 text-left">
+                    <div class="text-2xl mb-4 heading">{{ doc.meta.tagline }}</div>
+                    <div class="prose prose-lg mt-16 max-w-none
+                        prose-p:text-[#2d3748]
+                            prose-p:leading-[1.9]
+                            prose-headings:font-serif
+                            prose-headings:text-[#1f2933]
+                            prose-strong:text-[#1f2933]
+                            prose-blockquote:border-[#b08968]
+                            prose-blockquote:text-[#3d4852]
+                            prose-blockquote:italic
+                            prose-a:text-[#8c6a43]
+                            prose-a:no-underline
+                            prose-a:transition-colors
+                            hover:prose-a:text-[#486357]
+
+                            dark:prose-p:text-[#d1d5db]
+                            dark:prose-headings:text-[#f9fafb]
+                            dark:prose-strong:text-[#f9fafb]
+                            dark:prose-blockquote:border-[#d0b089]
+                            dark:prose-blockquote:text-[#e5e7eb]
+                            dark:prose-a:text-[#d0b089]
+                            dark:hover:prose-a:text-[#8fb8a7]">
+
+                        <ContentRenderer :value="doc" class="p-2 body-text" />
+                    </div>
+                        <div class="text-center font-display text-xl my-12 uppercase">Available from</div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <UButton 
+                                v-for="link in doc.meta.buy_links"
+                                :icon="link.icon"
+                                variant="outline"
+                                :key="link.url"
+                                :to="link.url"
+                                target="_blank">
+                                    {{ link.label }}
+                            </UButton>
+                        </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
 </template>
 
 <script setup lang="ts">
@@ -62,31 +69,5 @@ const { data: doc } = await useAsyncData(route.path, () => {
     return queryCollection('books').path(route.path).first()
 })
 
-// function getIconClass(icon) {
-//     return `${icon}`
-// }
-
-useHead({
-  title: doc.value ? `${doc.value.title} | Chris Rosser` : 'Chris Rosser',
-  meta: [
-    {
-      name: 'description',
-      content: doc.value ? doc.value.description : 'Chris Rosser, author, technical writer and developer living in Melbourne, Australia'
-    }
-  ]
-})
 
 </script>
-
-<style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=IM+Fell+English+SC&display=swap');
-
-html, body, .p-component, p, .body-text {
-    font-family: "Crimson Text" !important;
-}
-
-h1, h2, h3, h4, h5, h6, .heading {
-    font-family: "IM Fell English SC" !important;
-}
-
-</style>

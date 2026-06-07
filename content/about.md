@@ -1,20 +1,18 @@
 ---
 title: About Chris Rosser
-description: "About Chris Rosser, author, technical writer and developer living in Melbourne, Australia"
-date: 2026-02-07
+description: "In which the author introduces himself in the third-person"
+date: 2026-06-05
 ---
 
-I wrote my first story when I was seven or eight years old—nearly forty years ago. The details are hazy, but the impulse is not. It was inspired by the first computer game I ever played, and it set a direction that has shaped my creative, personal, and professional life ever since. Whether writing was something innate or something learned is difficult to say; what matters is that it has remained a constant.
+Chris Rosser is a writer of speculative fiction stories, including fantasy, sci-fi and historical fiction. Originally from Wales, he migrated as a child to Australia in the mid-1980s. Today, he lives in the leafy eastern suburbs of Melbourne, Australia with his wife, their three kids and two cats.
 
-I published my [first fantasy novella](/books/mistress-of-skeinhold) in 2018, followed by a [second](/books/cadocs-contract) eighteen months later. That early momentum collided with the realities of family life, prolonged COVID lockdowns, and professional demands. In 2021, I returned to long-form fiction by serialising a novel titled _The Codex of Destiny_. Although that project stalled, it remains close to my heart, and I intend to return to it with renewed focus.
+A life-long lover of fantasy and historical fiction, Chris has written stories and constructed worlds since early childhood. He earned his bachelor's degree with honours in history and archaeology, then a masters degree in editing and communication. For more than twenty years, he's worked as a technical writer and unofficial software engineer for companies including Canva, Sportsbet, Specialized and Equifax.
 
-Alongside fiction, I have spent over twenty years as a technical writer and nearly as long as a full-stack web developer. My professional work has centred on APIs, docs-as-code, and the kind of highly structured systems that might seem at odds with fantasy storytelling—but which, in practice, sharpen precision, world-building, and clarity. I've worked for Canva, Sportsbet, Specialized and Equifax.
+In 2007 Chris started this blog, became serious about it in 2014, then published his first two dark fantasy novellas in 2018 and 2019. Then, his writing career imploded spectacularly following prolonged COVID lockdowns, and the growing burden of parental and professional committments. In 2021, he returned to long-form fiction by serialising a novel titled _The Codex of Destiny_.
 
-Academically, I hold a bachelor’s degree with honours in archaeology and history, and a master’s degree in editing and communication. My interests include philosophy, classical studies, history, language, and technology—disciplines that strongly influence my fiction.
+In 2026, following a miserable two years that included two family deaths, two redundancies and career collapse thanks to AI, Chris rebuilt this site as a symbolic restart to his writing career.
 
-Outside writing, I am a martial artist, with training in Taekwondo, Boxing, Karate (Gōjū-ryū and Shōtōkan), and Brazilian Jiu-Jitsu. Discipline, physical practice, and long-term study are as important to me as imagination.
+Outside writing, Chris practices and teaches Taekwondo, writes software, and enjoys playing boardgames and TTRPGs.
 
-Originally from Wales, I emigrated to Australia as a child. I now live in Melbourne with my wife, three children, and two cats.
-
-You can find my writing on [Substack](https://chrisrosser.substack.com) and [Medium](https://chrisrosser.medium.com). I don't use social media.
+You can [read his journal](/journal), learn about his [books](/books), or subscribe to his [Substack](https://chrisrosser.substack.com). If you're really bored, you can read his [privacy policy](/privacy), or peruse this [website's source code](https://github.com/chrisgb-dev/rosser).
 

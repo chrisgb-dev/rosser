@@ -64,7 +64,7 @@ const { data: page } = await useAsyncData(route.path, () => {
 
 
 useHead({
-  title: page.value ? `${page.value.title} | Chris Rosser` : 'Chris Rosser',
+  title: page.value ? `${page.value.title}` : 'Chris Rosser',
   meta: [
     {
       name: 'description',

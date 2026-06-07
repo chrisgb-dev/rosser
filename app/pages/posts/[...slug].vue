@@ -1,14 +1,9 @@
 <template>
+
 <div
     class="relative min-h-screen overflow-hidden bg-[#f6f1e7] text-[#1f2933] dark:bg-[#111827] dark:text-[#e5e7eb]"
   >
     <!-- Paper texture -->
-    <div
-      class="pointer-events-none absolute inset-0 opacity-[0.045] mix-blend-multiply dark:opacity-[0.03]"
-      style="
-        background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-      "
-    />
 
     <!-- Decorative vertical line -->
     <!-- <div
@@ -17,15 +12,16 @@
 
     <!-- Main layout -->
     <main
+      v-if="page"
       class="relative mx-auto grid max-w-7xl gap-20 px-6 py-20 xl:grid-cols-[minmax(0,1fr)_320px] xl:px-8"
     >
       <!-- Article -->
-      <article v-if="page" class="max-w-3xl">
+      <article  class="max-w-3xl">
         <!-- Category -->
         <p
           class="mb-6 text-sm uppercase tracking-[0.25em] text-[#8c6a43] dark:text-[#d0b089]"
         >
-          Essays
+          {{ page.category || 'Journal'  }}
         </p>
 
         <!-- Title -->
@@ -130,33 +126,22 @@
       <!-- Sidebar -->
       <aside class="space-y-14">
         <!-- TOC -->
-        <div>
+        <div v-if="page.body.toc && page.body.toc.links.length >= 1" class="hidden xl:block">
           <h3
             class="mb-8 text-sm uppercase tracking-[0.24em] text-[#8c6a43] dark:text-[#d0b089]"
           >
             On This Page
           </h3>
 
+
           <nav class="space-y-5 text-lg">
             <a
-              href="#"
+              v-for="item in page.body.toc.links"
+              :key="item.id"
+              :href="`#${item.id}`"
               class="block transition-colors hover:text-[#486357] dark:hover:text-[#8fb8a7]"
             >
-              The past is not a fixed thing
-            </a>
-
-            <a
-              href="#"
-              class="block text-muted transition-colors hover:text-[#486357] dark:text-[#9ca3af] dark:hover:text-[#8fb8a7]"
-            >
-              Story as inheritance
-            </a>
-
-            <a
-              href="#"
-              class="block text-muted transition-colors hover:text-[#486357] dark:text-[#9ca3af] dark:hover:text-[#8fb8a7]"
-            >
-              The responsibility of telling
+              {{ item.text }}
             </a>
           </nav>
         </div>
@@ -206,38 +191,7 @@
         </div>
 
         <!-- Newsletter -->
-        <div
-          class="overflow-hidden rounded-4xl border border-[#d8cfbf] bg-[#20332b] p-8 text-white dark:border-white/10"
-        >
-          <p
-            class="text-xs uppercase tracking-[0.24em] text-[#d0b089]"
-          >
-            Stay In The Loop
-          </p>
-
-          <h3
-            class="mt-5 font-serif text-3xl leading-tight"
-            style="font-family: 'Spectral', serif"
-          >
-            Occasional essays, serialized fiction and project updates.
-          </h3>
-
-          <input
-            type="email"
-            placeholder="Your email address"
-            class="mt-8 w-full rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/50 focus:border-[#d0b089] focus:outline-none"
-          />
-
-          <button
-            class="mt-4 w-full rounded-xl bg-[#b08968] px-5 py-4 text-sm uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#c29a76]"
-          >
-            Subscribe
-          </button>
-
-          <p class="mt-5 text-sm text-white/60">
-            No spam. Unsubscribe anytime.
-          </p>
-        </div>
+        <Subscribe />
       </aside>
     </main>
   </div>
@@ -273,5 +227,15 @@ const relatedPosts = [
       'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop'
   }
 ]
+
+useHead({
+  title: page.value ? `${page.value.title}` : 'Chris Rosser',
+  meta: [
+    {
+      name: 'description',
+      content: page.value && page.value.description ? page.value.description : 'Chris Rosser is a novelist and essayist writing about myth, memory, history and power from Melbourne, Australia.'
+    }
+  ]
+})
 </script>
 

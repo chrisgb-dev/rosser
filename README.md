@@ -6,9 +6,10 @@ All content is Copyright Chris Gardiner-Bill, writing as Chris Rosser.
 
 Features:
 
-* Reading list built from a single JSON file
+* UI built with Nuxt, TailwindCSS, and a few components from NuxtUI
+* Nuxt Content for managing my journal, books and site copy
+* Reading list app with a PocketBase backend
 * Analytics (Umami)
-* UI built with NuxtJS, TailwindCSS and DaisyUI
-* Deploys to Netlify
+* Deploys to Cloudflare
 
-Very much a work in progress
+Very much a (constant) work in progress.
