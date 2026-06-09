@@ -3,7 +3,26 @@ export default defineEventHandler(async (event) => {
     const config = useRuntimeConfig();
     const pb = await getPocketBase();
 
-    const readingList = await pb.collection('books').getList(1, 999, {
+    type Item = {
+        id: string;
+        title: string;
+        progress: number;
+        linkAmazon: string;
+        linkApple: string;
+        linkKobo: string;
+        status: string;
+        cover: string;
+        series: string;
+        genre: string[];
+        expand: {
+            authors: {
+                firstName: string;
+                lastName: string;
+            }[]
+        }
+    }
+
+    const readingList = await pb.collection('books').getList<Item>(1, 999, {
         expand: 'authors'
     });
 
@@ -13,6 +32,8 @@ export default defineEventHandler(async (event) => {
             title: item.title,
             progress: item.progress,
             linkAmazon: item.linkAmazon,
+            linkApple: item.linkApple,
+            linkKobo: item.linkKobo,
             status: item.status,
             cover: item.cover,
             series: item.series,

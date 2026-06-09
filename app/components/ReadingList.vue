@@ -21,7 +21,7 @@
 
             <div v-for="book in sortBooks(filterBooks(readingList.items, searchString, searchStatus))" :key="book.id"
                 class="relative rounded-lg shadow-md overflow-hidden bg-white group">
-                <NuxtLink :to="book.medium == 'audiobook' ? book.linkApple : book.linkAmazon" target="_blank">
+                <NuxtLink :to="book.medium == 'audiobook' ? book.linkApple : book.linkAmazon || book.linkKobo" target="_blank">
                     <div class="aspect-2/3 w-full">
                         <img :src="book.cover" :alt="`${book.title} book cover`" :title="`${book.title} book cover`"
                             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 grayscale group-hover:grayscale-0" />
@@ -51,8 +51,7 @@ const searchStatus = ref('');
 
 function sortBooks(data) {
     return data.sort((a, b) => {
-        return a.authors[0].lastName.toLowerCase().localeCompare(b.authors[0].lastName.toLowerCase()) ||
-            a.published - b.published || a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+        return a.authors[0].lastName.toLowerCase().localeCompare(b.authors[0].lastName.toLowerCase()) || a.published - b.published || a.title.toLowerCase().localeCompare(b.title.toLowerCase());
     })
 }
 
