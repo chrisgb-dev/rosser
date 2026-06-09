@@ -13,6 +13,8 @@ export default defineEventHandler(async (event) => {
         status: string;
         cover: string;
         series: string;
+        seriesNo: number;
+        published: string;
         genre: string[];
         expand: {
             authors: {
@@ -37,6 +39,8 @@ export default defineEventHandler(async (event) => {
             status: item.status,
             cover: item.cover,
             series: item.series,
+            seriesNo: item.seriesNo,
+            published: item.published,
             genre: item.genre.join(', '),
             authors: item.expand.authors.map((author) => ({
                 firstName: author.firstName,

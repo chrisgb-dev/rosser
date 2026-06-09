@@ -51,7 +51,7 @@ const searchStatus = ref('');
 
 function sortBooks(data) {
     return data.sort((a, b) => {
-        return a.authors[0].lastName.toLowerCase().localeCompare(b.authors[0].lastName.toLowerCase()) || a.published - b.published || a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+        return a.authors[0].lastName.toLowerCase().localeCompare(b.authors[0].lastName.toLowerCase()) || (Number(a.published) - Number(b.published)) || (a.seriesNo - b.seriesNo) || a.title.toLowerCase().localeCompare(b.title.toLowerCase());
     })
 }
 
