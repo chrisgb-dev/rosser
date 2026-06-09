@@ -21,7 +21,7 @@
                 </div>
                 <div v-else>
                     <h3 class="mt-5 font-serif text-3xl leading-tight" style="font-family: 'Spectral', serif">
-                        Thanks for subscribing!
+                        {{ serverError ? 'Error!' : 'Thanks for subscribing!' }}
                     </h3>
                     <p>{{ serverMessage }}</p>
                 </div>
@@ -33,6 +33,8 @@
                         <input type="email" placeholder="Your email address" v-model="state.email"
                             class="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-white/50 focus:border-[#d0b089] focus:outline-none" />
                     </UFormField>
+
+                    <input name="website" tabindex="-1" autocomplete="off" class="hidden" v-model="state.website" />
 
                     <UFormField class="my-6">
                         <UButton :loading="loading" type="submit"
@@ -56,15 +58,18 @@ const toast = useToast()
 const loading = ref(false);
 
 const schema = z.object({
-    email: z.email('Please enter a valid email address')
+    email: z.email('Please enter a valid email address'),
+    website: z.string().optional()
 })
 
 const serverMessage = ref<string | null>(null)
+const serverError = ref<boolean | null>(null)
 
 type Schema = z.output<typeof schema>
 
 const state = reactive<Partial<Schema>>({
-    email: ''
+    email: undefined,
+    website: undefined
 })
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
@@ -73,12 +78,15 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     loading.value = true
 
     try {
-        const data = await $fetch<{ message?: string }>('/api/subscribe', {
+        const rsp = await $fetch<{ message?: string }>('/api/subscribe', {
             method: 'POST',
-            body: { email }
+            body: { 
+                email: event.data.email, 
+                website: event.data.website
+            }
         })
 
-        serverMessage.value = data.message ?? 'Subscription successful'
+        serverMessage.value = rsp.message ?? 'Subscription successful'
         toast.add({
             title: 'Subscribed',
             description: 'Thanks for subscribing! You will receive a confirmation email shortly.',
@@ -86,6 +94,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         })
         resetForm()
     } catch (error: any) {
+        serverError.value = true
         const message = error?.data?.message ?? 'Failed to subscribe, please try again later.'
         serverMessage.value = message
         toast.add({ title: 'Error', description: message, color: 'error' })
@@ -96,7 +105,8 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 }
 
 function resetForm() {
-    state.email = ''
+    state.email = undefined
+    state.website = undefined
 }
 
 </script>

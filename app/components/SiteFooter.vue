@@ -7,7 +7,7 @@
                 <p class="text-muted text-sm">Writing about myth, history, memory, and power.</p>
                 <p class="text-muted text-sm mt-6">Melbourne, Australia</p>
             </div>
-            <div class="flex flex-row">
+            <div class="flex flex-row gap-4 md:gap-24">
                 <div class="flex flex-col items-center gap-2">
                     <p class="text-muted text-sm uppercase mb-3">Explore</p>
                     <UNavigationMenu :items="exploreNavItems" variant="link" orientation="vertical" />
@@ -26,7 +26,12 @@
                     Privacy Policy
                 </NuxtLink>
             </p>
-            <p class="text-muted text-sm text-center mt-6">Crafted with care, by the author.</p>
+            <p class="text-muted text-sm text-center mt-6">
+                <a href="https://github.com/chrisgb-dev/rosser" target="_blank" class="text-sm text-600 cursor-pointer">
+
+                    Crafted with care, by the author.
+                </a>
+            </p>
         </div>
     </footer>
 </template>

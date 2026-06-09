@@ -1,4 +1,4 @@
-import { getPocketBase } from '../utils/pb';
+import { getPocketBase } from '../../utils/pb';
 export default defineEventHandler(async (event) => {
     const config = useRuntimeConfig();
     const pb = await getPocketBase();
@@ -15,12 +15,13 @@ export default defineEventHandler(async (event) => {
             linkAmazon: item.linkAmazon,
             status: item.status,
             cover: item.cover,
-            expand: {
-                authors: item.expand.authors.map((author) => ({
-                    firstName: author.firstName,
-                    lastName: author.lastName
-                }))
-            }
+            series: item.series,
+            genre: item.genre.join(', '),
+            authors: item.expand.authors.map((author) => ({
+                firstName: author.firstName,
+                lastName: author.lastName
+            }))
+
         }))
     }
 

@@ -9,10 +9,42 @@
                 <p class="line-height-3 text-2xl">Books I'm reading, have read, and want to read</p>
                 <p class="mt-1 mb-3 line-height-3 text-sm">Affiliate links in use.</p>
                 <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4">
-                    <UButton size="xl" to="/journal">Recommend a book</UButton>
+                    <UModal 
+                        :title="modalTitle"
+                        :description="modalDescription"
+                        :dismissible="false"
+                        :modal="true"
+                       >
+
+                        <UButton size="xl">Recommend a book</UButton>
+
+                        <template #body>
+                            <FormRecommendBook @submitted="handleRecommendationSubmit" />
+                        </template>
+                    </UModal>
                 </div>
             </div>
         </div>
         <ReadingList />
     </main>
 </template>
+<script setup lang="ts">
+useHead({
+    title: 'Reading list',
+    meta: [
+        {
+            name: 'description',
+            content: 'Chris Rosser\'s reading list and personal Goodreads, featuring books he\'s currently reading, has read, and wants to read. Updated regularly with new recommendations and reviews.'
+        }
+    ]
+})
+
+const modalTitle = ref<string | null>('Recommend a book');
+const modalDescription = ref<string | null>('Have a book you\'d like to recommend? Fill out the details and tell me why you think I should read it!');
+
+function handleRecommendationSubmit() {
+    modalTitle.value = 'Thanks for your recommendation!';
+    modalDescription.value = null
+}
+
+</script>

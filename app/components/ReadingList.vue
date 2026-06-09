@@ -10,9 +10,9 @@
             <UButton variant="ghost" size="xl" @click="searchStatus = 'did not finish'">Did not finish</UButton>
         </div>
 
-        <input v-model="searchString" type="text" placeholder="Search by title, author or series"
+        <input v-model="searchString" type="text" placeholder="Search by title, author, series or genre"
             class="input input-bordered w-full mb-6"
-            @keyup="filterBooks(readingList.meta.books, searchString, searchStatus)" />
+            @keyup="filterBooks(readingList.items, searchString, searchStatus)" />
 
         {{ filterBooks(readingList.items, searchString, searchStatus).length }} book<span
             v-if="filterBooks(readingList.items, searchString, searchStatus).length !== 1">s</span>.
@@ -51,7 +51,7 @@ const searchStatus = ref('');
 
 function sortBooks(data) {
     return data.sort((a, b) => {
-        return a.expand.authors[0].lastName.toLowerCase().localeCompare(b.expand.authors[0].lastName.toLowerCase()) ||
+        return a.authors[0].lastName.toLowerCase().localeCompare(b.authors[0].lastName.toLowerCase()) ||
             a.published - b.published || a.title.toLowerCase().localeCompare(b.title.toLowerCase());
     })
 }
@@ -73,13 +73,13 @@ function filterBooks(books, searchString, searchStatus) {
     if (!searchString && !searchStatus) return books;
     const lowerSearch = searchString ? searchString.toLowerCase() : '';
     return books.filter(book =>
-        (!searchString || book.title.toLowerCase().includes(lowerSearch) || book.expand.authors[0].lastName.toLowerCase().includes(lowerSearch) || book.series.toLowerCase().includes(lowerSearch)) &&
+        (!searchString || book.title.toLowerCase().includes(lowerSearch) || book.authors[0].lastName.toLowerCase().includes(lowerSearch) || book.series.toLowerCase().includes(lowerSearch) || book.genre.toLowerCase().includes(lowerSearch)) &&
         (!searchStatus || book.status === searchStatus)
     );
 }
 
 function getReadingList() {
-    return fetch('/api/reading-list')
+    return fetch('/api/reading/list')
         .then(res => res.json())
 }
 

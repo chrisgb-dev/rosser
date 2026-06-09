@@ -36,7 +36,12 @@ export default defineNuxtConfig({
     listmonkHost: '',
     listmonkListId: '',
     listmonkApiUser: '',
-    listmonkApiToken: ''
+    listmonkApiToken: '',
+    stripeSecretKey: '',
+    stripeWebhookSecret: '',
+    public: {
+      stripePublishableKey: '',
+    },
   },
   devtools: { enabled: true },
   modules: [// 'nuxt-content-assets',

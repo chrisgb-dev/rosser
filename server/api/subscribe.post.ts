@@ -3,14 +3,28 @@ export default defineEventHandler(async (event) => {
     
     const body = await readBody(event);
     
-    const { email } = body;
+    const { email, website } = body;
+
+    if (website) {
+        throw createError({
+            statusCode: 400,
+            statusMessage: 'Bad request',
+            data: {
+                success: false,
+                message: 'Bad request: bot detected!'
+            }
+        })
+    }
 
     if (!email) {
-        return {
-            status: 400,
-            success: false,
-            message: 'Email is required'
-        }
+        throw createError({
+            statusCode: 400,
+            statusMessage: 'Email is required',
+            data: {
+                success: false,
+                message: 'Email is required'
+            }
+        })
     }
 
     const subscriber = {
@@ -19,7 +33,7 @@ export default defineEventHandler(async (event) => {
     }
 
     try {
-        await fetch(`${config.listmonkHost}/api/subscribers`, {
+        const rsp = await fetch(`${config.listmonkHost}/api/subscribers`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,16 +42,33 @@ export default defineEventHandler(async (event) => {
             body: JSON.stringify(subscriber)
         });
 
-    } catch (error) {
-        return {
-            status: 500,
-            success: false,
-            message: 'An error occurred while subscribing'
+        if (!rsp.ok) {
+            const errorData = await rsp.json();
+            console.error('Subscription failed:', errorData);
+            throw createError({
+                statusCode: rsp.status,
+                statusMessage: 'Subscription failed: ' + (errorData.message || rsp.statusText),
+                data: {
+                    success: false,
+                    message: errorData.message || 'An error occurred while subscribing'
+                }
+            })
         }
+
+
+
+    } catch (error:any) {
+        throw createError({
+            statusCode: error.cause?.statusCode || 500,
+            statusMessage: error.statusMessage || 'Subscription failed',
+            data: {
+                success: error.data?.success || false,
+                message: error.data?.message || 'An error occurred while subscribing'
+            }
+        })
     }
 
     return {
-        status: 200,
         success: true,
         message: 'You will receive an email asking you to confirm your subscription. Please check your inbox and click the confirmation link to complete the subscription process.'
     }

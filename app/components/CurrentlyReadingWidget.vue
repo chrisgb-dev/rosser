@@ -7,7 +7,7 @@
         </div>
         <div v-else-if="readingList && readingList.length > 0">
             <div v-for="book in readingList" class="mb-4">
-                <div class="font-medium text-lg mt-0 mb-0">{{ book.title }}<br />by {{ book.expand.authors[0].firstName }} {{ book.expand.authors[0].lastName }}</div>
+                <div class="font-medium text-lg mt-0 mb-0">{{ book.title }}<br />by {{ book.authors[0].firstName }} {{ book.authors[0].lastName }}</div>
                 <UProgress v-model="book.progress" :max="100" size="lg" />
             </div>
         </div>
@@ -23,7 +23,7 @@ const readingList = ref(null);
 const loading = ref(true);
 
 function getReadingList() {
-    return fetch('/api/reading-list', {})
+    return fetch('/api/reading/list', {})
         .then(res => res.json())
         .then(data => {
             return data.items.filter(item => item.status === 'reading');
