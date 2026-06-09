@@ -63,8 +63,10 @@ function getBadgeClass(status) {
             return 'bg-warning text-white';
         case 'to read':
             return 'bg-info text-white';
+        case 'recommended':
+            return 'bg-orange-600 text-white';
         default:
-            return 'bg-danger text-white';
+            return 'bg-red-600 text-white';
     }
 }
 
