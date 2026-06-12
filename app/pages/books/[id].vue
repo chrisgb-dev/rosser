@@ -44,6 +44,7 @@
 
                         <ContentRenderer :value="doc" class="p-2 body-text" />
                     </div>
+                    <div v-if="doc.meta.buy_links" class="mt-16">
                         <div class="text-center font-display text-xl my-12 uppercase">Available from</div>
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                             <UButton 
@@ -56,6 +57,10 @@
                                     {{ link.label }}
                             </UButton>
                         </div>
+                    </div>
+                    <div v-else>
+                        <p class="text-center text-muted dark:text-[#9ca3af] mt-16">Release date and purchase links coming soon.</p>
+                    </div>
                 </div>
             </div>
         </section>

@@ -158,10 +158,13 @@
             <article
               v-for="post in relatedPosts"
               :key="post.title"
-              class="group flex gap-5"
+              
             >
+            <NuxtLink
+              class="group flex gap-5"
+              :to="post.path">
               <img
-                :src="post.image"
+                :src="post.cover || '/images/yannick-pulver-hopX_jpVtRM-unsplash.jpg'"
                 :alt="post.title"
                 class="h-28 w-28 rounded-2xl object-cover"
               />
@@ -183,9 +186,10 @@
                 <p
                   class="mt-3 text-sm text-muted dark:text-[#9ca3af]"
                 >
-                  {{ post.date }}
+                  {{ formatDate(post.date) }}
                 </p>
               </div>
+            </NuxtLink>
             </article>
           </div>
         </div>
@@ -204,29 +208,14 @@ const { data: page } = await useAsyncData(route.path, () => {
     return queryCollection('journal').path(route.path).first()
 })
 
-const relatedPosts = [
-  {
-    title: 'Winter on the Great Ocean Road',
-    category: 'Field Notes',
-    date: 'Apr 28, 2026',
-    image:
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop'
-  },
-  {
-    title: 'The Weight of a Name',
-    category: 'Writing',
-    date: 'May 5, 2026',
-    image:
-      'https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1200&auto=format&fit=crop'
-  },
-  {
-    title: 'On Maps and Other Fictions',
-    category: 'Essays',
-    date: 'Mar 16, 2026',
-    image:
-      'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop'
-  }
-]
+const { data: relatedPosts } = await useAsyncData('blog', () => {
+    return queryCollection('journal')
+        .where('path', '!=', route.path)
+        .where('category', '==', page.value?.category || '')
+        .order('date', 'DESC')
+        .limit(3)
+        .all()
+}) 
 
 useHead({
   title: page.value ? `${page.value.title}` : 'Chris Rosser',
