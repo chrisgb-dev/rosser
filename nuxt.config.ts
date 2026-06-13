@@ -16,7 +16,6 @@ export default defineNuxtConfig({
       title: 'Chris Rosser'
     }
   },
-  ogImage: { zeroRuntime: true },
   ui: {
     prose: true
   },
