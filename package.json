@@ -18,6 +18,7 @@
     "@tailwindcss/vite": "^4.3.1",
     "autoprefixer": "^10.5.0",
     "better-sqlite3": "^12.10.0",
+    "crossws": "^0.4.6",
     "pocketbase": "^0.26.9",
     "remark-gfm": "^4.0.1",
     "remark-reading-time": "^2.1.0",
