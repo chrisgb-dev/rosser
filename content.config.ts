@@ -50,6 +50,7 @@ export default defineContentConfig({
         category: z.string(),
         tags: z.array(z.string()),
         cover: z.string(),
+        coverCaption: z.string().optional(),
         description: z.string(),
         readingTime: z.object({
           text: z.string(),

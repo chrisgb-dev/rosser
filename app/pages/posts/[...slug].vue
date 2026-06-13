@@ -62,10 +62,10 @@
             class="aspect-16/10 w-full rounded-4xl object-cover"
           />
 
-          <figcaption
+          <figcaption v-if="page.coverCaption"
             class="mt-4 text-sm italic text-muted dark:text-[#9ca3af]"
           >
-            Morning light in the Otways, Victoria.
+            {{ page.coverCaption }}
           </figcaption>
         </figure>
 
@@ -210,8 +210,8 @@ const { data: page } = await useAsyncData(route.path, () => {
 
 const { data: relatedPosts } = await useAsyncData('blog', () => {
     return queryCollection('journal')
-        .where('path', '!=', route.path)
-        .where('category', '==', page.value?.category || '')
+        .where('path', 'NOT LIKE', route.path)
+        .where('category', 'LIKE', page.value?.category || '')
         .order('date', 'DESC')
         .limit(3)
         .all()

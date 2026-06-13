@@ -16,9 +16,10 @@
             </div>
         </div>
 
-        <section class="pb-12">
+        <!-- TODO -->
+        <!-- <section class="pb-12">
             Big banner for the current project
-        </section>
+        </section> -->
 
         <section class="pb-12">
             <PostsWidget />
