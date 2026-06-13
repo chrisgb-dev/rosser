@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
 
     const subscriber = {
         email: email,
-        lists: [2]
+        lists: [config.listmonkListId]
     }
 
     try {
