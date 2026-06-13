@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   },
   content: {
     build: {
-      markdown: { 
+      markdown: {
         remarkPlugins: {
           'remark-reading-time' : {}
         }

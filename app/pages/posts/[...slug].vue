@@ -147,7 +147,7 @@
         </div>
 
         <!-- Related -->
-        <div>
+        <div v-if="relatedPosts && relatedPosts.length > 0">
           <h3
             class="mb-8 text-sm uppercase tracking-[0.24em] text-[#8c6a43] dark:text-[#d0b089]"
           >
