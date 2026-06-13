@@ -90,13 +90,13 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         toast.add({
             title: 'Thank you for your recommendation!',
             description: 'I appreciate your suggestion and will consider adding it to my reading list.',
-            status: 'success'
+            color: 'success'
         })
     } else {
         toast.add({
             title: 'Error submitting recommendation',
             description: data.error || 'An error occurred while submitting your recommendation. Please try again later.',
-            status: 'error'
+            color: 'error'
         })
     }
     emitter('submitted');
