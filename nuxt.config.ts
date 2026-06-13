@@ -5,7 +5,6 @@ export default defineNuxtConfig({
   ssr: true,
   nitro: {
     preset:process.env.NITRO_PRESET || undefined,
-    // preset: "cloudflare_module",
     cloudflare: {
       deployConfig: true,
       nodeCompat: true
@@ -42,6 +41,9 @@ export default defineNuxtConfig({
     public: {
       stripePublishableKey: '',
     },
+  },
+  seo: {
+    ogImage: false
   },
   devtools: { enabled: true },
   modules: [
