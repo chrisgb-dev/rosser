@@ -43,7 +43,17 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  modules: ['@nuxt/content', 'nuxt-umami', '@nuxt/ui', '@nuxt/image', '@nuxtjs/robots', '@nuxtjs/sitemap', 'nuxt-schema-org', 'nuxt-link-checker', 'nuxt-seo-utils'],
+  modules: [
+    'nuxt-umami', 
+    '@nuxt/ui', 
+    '@nuxt/image', 
+    '@nuxtjs/robots', 
+    '@nuxtjs/sitemap', 
+    'nuxt-schema-org', 
+    'nuxt-link-checker', 
+    'nuxt-seo-utils',
+    '@nuxt/content', 
+  ],
   umami: {
     id: "5a9ba10a-7814-41e2-a7b8-538b024dec5b",
     host: "https://cloud.umami.is",

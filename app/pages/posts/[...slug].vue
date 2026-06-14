@@ -217,14 +217,12 @@ const { data: relatedPosts } = await useAsyncData('blog', () => {
         .all()
 }) 
 
-useHead({
+useSeoMeta({
   title: page.value ? `${page.value.title}` : 'Chris Rosser',
-  meta: [
-    {
-      name: 'description',
-      content: page.value && page.value.description ? page.value.description : 'Chris Rosser is a novelist and essayist writing about myth, memory, history and power from Melbourne, Australia.'
-    }
-  ]
+  description: page.description,
 })
+  
+useSchemaOrg(page.schemaOrg || []) // <-- Nuxt Schema.org
+useSeoMeta(page.seo || {})
 </script>
 

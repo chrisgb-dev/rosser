@@ -102,7 +102,10 @@ const {data: posts} = await useAsyncData(route.path, () => {
     .order('date', 'DESC')
     .all()
 })
-
+useSeoMeta({
+  title: 'Journal',
+  description: 'Essays, field notes and thoughts on writing by Chris Rosser.',
+})
 
 </script>
   

@@ -1,4 +1,7 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content'
+import { defineRobotsSchema } from '@nuxtjs/robots/content'
+import { defineSitemapSchema } from '@nuxtjs/sitemap/content'
+import { defineSchemaOrgSchema } from 'nuxt-schema-org/content'
 
 export default defineContentConfig({
   collections: {
@@ -14,7 +17,10 @@ export default defineContentConfig({
           minutes: z.number(),
           time: z.number(),
           words: z.number()
-        })
+        }),
+        robots: defineRobotsSchema(),
+        sitemap: defineSitemapSchema(),
+        schemaOrg: defineSchemaOrgSchema(),
       })
     }),
     books: defineCollection({
@@ -27,6 +33,9 @@ export default defineContentConfig({
         order: z.number(),
         description: z.string(),
         genre: z.string(),
+        robots: defineRobotsSchema(),
+        sitemap: defineSitemapSchema(),
+        schemaOrg: defineSchemaOrgSchema(),
       })
     }),
     writingList: defineCollection({
@@ -57,7 +66,20 @@ export default defineContentConfig({
           minutes: z.number(),
           time: z.number(),
           words: z.number()
-        })
+        }),
+        robots: defineRobotsSchema().default({ index: false, follow: true }),
+        sitemap: defineSitemapSchema().default({ changefreq: 'weekly', priority: 0.7 }),
+        schemaOrg: defineSchemaOrgSchema().default({
+          '@type': 'BlogPosting',
+          headline: '{{title}}',
+          datePublished: '{{date}}',
+          description: '{{description}}',
+          image: '{{cover}}',
+          author: {
+            '@type': 'Person',
+            name: 'Chris Rosser'
+          }
+        }),
       })
     }),
     alashiya: defineCollection({
@@ -65,7 +87,7 @@ export default defineContentConfig({
       source: {
         repository: 'https://github.com/chrisgb-dev/alashiya/tree/master',
         include: "docs/**/*",
-      }
+      },
     }),
   }
 })

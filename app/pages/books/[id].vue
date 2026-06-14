@@ -47,7 +47,7 @@
                     <div v-if="doc.meta.buy_links" class="mt-16">
                         <div class="text-center font-display text-xl my-12 uppercase">Available from</div>
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                            <UButton 
+                            <UButton
                                 v-for="link in doc.meta.buy_links"
                                 :icon="link.icon"
                                 variant="outline"
@@ -69,6 +69,7 @@
 </template>
 
 <script setup lang="ts">
+
 const route = useRoute()
 const { data: doc } = await useAsyncData(route.path, () => {
     return queryCollection('books').path(route.path).first()

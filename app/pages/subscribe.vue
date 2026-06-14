@@ -14,3 +14,9 @@
         <Subscribe />
     </main>
 </template>
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Subscribe',
+  description: 'Subscribe to Chris Rosser\'s essays, field notes and thoughts on writing, delivered to your inbox.',
+})
+</script>

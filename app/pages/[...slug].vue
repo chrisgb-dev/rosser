@@ -63,13 +63,10 @@ const { data: page } = await useAsyncData(route.path, () => {
 })
 
 
-useHead({
-  title: page.value ? `${page.value.title}` : 'Chris Rosser',
-  meta: [
-    {
-      name: 'description',
-      content: page.value && page.value.description ? page.value.description : 'Chris Rosser, author, technical writer and developer living in Melbourne, Australia'
-    }
-  ]
+useSeoMeta({
+  title: page.value ? `${page.title}` : 'Chris Rosser',
+  description: page.description,
 })
+useSchemaOrg(page.value.schemaOrg || []) // <-- Nuxt Schema.org
+useSeoMeta(page.value.seo || {})
 </script>

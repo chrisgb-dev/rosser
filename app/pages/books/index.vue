@@ -21,5 +21,10 @@ const route = useRoute()
 const  { data: books } = await useAsyncData(route.path, () => {
     return queryCollection('books').order('order', 'ASC').all()
 })
+
+useSeoMeta({
+  title: 'Books',
+  description: 'Books and stories by Chris Rosser.',
+})
 </script>
 
