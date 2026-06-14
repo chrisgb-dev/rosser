@@ -20,12 +20,5 @@
     "NUXT_PUBLIC_UMAMI_HOST": "https://us.umami.is/script.js",
     "NUXT_PUBLIC_UMAMI_ID": "5a9ba10a-7814-41e2-a7b8-538b024dec5b"
   },
-  "env": {
-    "preview": {
-      "vars": {
-        "NUXT_PUBLIC_UMAMI_HOST": "https://us.umami.is/script.js",
-        "NUXT_PUBLIC_UMAMI_ID": "5a9ba10a-7814-41e2-a7b8-538b024dec5b"
-      }
-    }
-  }
+  "env": {}
 }

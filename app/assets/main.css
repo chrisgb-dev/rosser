@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "@nuxt/ui";
+
+:root {
+  --ui-bg: #f6f1e7;
+  --ui-bg-muted: #ebe4d8;
+
+  --ui-text: #1f2933;
+  --ui-text-muted: #52606d;
+
+  --ui-primary: #486357;
+  --ui-secondary: #8c6a43;
+  --ui-accent: #b08968;
+
+  --ui-border: #d8cfbf;
+}
+
+
+.dark {
+  --ui-bg: #111827;
+  --ui-bg-muted: #1f2937;
+
+  --ui-text: #e5e7eb;
+  --ui-text-muted: #9ca3af;
+
+  --ui-primary: #8fb8a7;
+  --ui-secondary: #d0b089;
+  --ui-accent: #e0c097;
+
+  --ui-border: #374151;
+}
+
+@theme {
+  --font-display: "Spectral", "serif";
+  --font-sans: "Inter", "sans-serif";
+}

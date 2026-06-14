@@ -3,7 +3,7 @@ title: 'Privacy Policy'
 head:
     title: "Chris Rosser | Privacy Policy"
 description: Privacy policy
-date: 2025-07-20 10:30:00
+date: 2026-06-05 16:00:00
 tags: ['privacy']
 ---
 
@@ -70,7 +70,7 @@ While I limit the presence of third-party cookies, my hosting provider and CDN o
 
 ## Changes
 
-I reserve the right to update this privacy policy at any time. Changes are tracked in my [site's GitHub repository](https://github.com/foss-scribe/rosser/blob/master/content/privacy.md).
+I reserve the right to update this privacy policy at any time. Changes are tracked in my [site's GitHub repository](https://github.com/chrisgb-dev/rosser/blob/master/content/privacy.md).
 
 ## Questions
 
@@ -78,6 +78,7 @@ You can direct any questions about this privacy policy to support@chrisrosser.ne
 
 ## Update log
 
+* 2026-06-05 Updates GitHub link privacy policy source document.
 * 2025-07-20 Minor corrections.
 * 2024-12-23 Minor corrections.
 * 2024-10-24 Move to Umami cloud and removal of Scriptorium, Stripe and Mailgun.

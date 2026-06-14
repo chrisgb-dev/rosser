@@ -1,10 +1,11 @@
 ---
 title: Mistress of Skeinhold
 tagline: Fame has its price.
-description: Mistress of Skeinhold, by Chris Rosser, is a grim dark novella of the The Weaver Cycle.
+description: A young bard and his master travel to Skeinhold castle, but its decaying walls hide a dark secret known only to a dying lord and his runaway kin.
 subtitle: A novella of the Weaver Cycle
 banner: book-bg-mistress.webp
 cover: cover-mos.webp
+genre: Dark Fantasy
 type: book
 order: 2
 buy_links:
@@ -25,19 +26,8 @@ buy_links:
         url: https://www.amazon.ca/dp/B07DLLHP2H
         icon: 'pi pi-amazon'
     -
-        label: Apple Books
-        url: https://apple.co/3g8qifx
-        icon: 'pi pi-apple'
-    -
-        label: Google Play
-        url: https://play.google.com/store/books/details/Chris_Rosser_Mistress_of_Skeinhold?id=8g5fDwAAQBAJ
-        icon: 'pi pi-android'
-    -
         label: Kobo
         url: https://www.kobo.com/au/en/ebook/mistress-of-skeinhold
-    -
-        label: Barnes & Noble
-        url: https://www.barnesandnoble.com/w/the-weavers-boy-chris-rosser/1128893408
 cta:
     title: "Get your copy now"
     description: Buy the ebook, or read it when you become a patron of Chris Rosser's Scriptorium."

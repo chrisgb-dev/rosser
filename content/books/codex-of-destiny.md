@@ -1,9 +1,10 @@
 ---
 title: The Codex of Destiny
 cover: cover-codex-of-destiny-bw.webp
-description: The Codex of Destiny is a serialised novella written by Chris Rosser.
+description: An exiled monk, his uncouth guide, and a slave bound by a demonic pact stumble across an ancient artefact.
 banner: book-bg-codex.webp
 type: book
+genre: Epic Fantasy
 order: 5
 head:
     title: Chris Rosser | The Codex of Destiny
