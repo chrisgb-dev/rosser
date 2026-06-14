@@ -84,10 +84,6 @@ function getReadingList() {
         .then(res => res.json())
 }
 
-useHead({
-    title: 'Chris Rosser | Reading List'
-})
-
 onMounted(async () => {
     try {
         const data = await getReadingList();

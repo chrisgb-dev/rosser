@@ -75,5 +75,8 @@ const { data: doc } = await useAsyncData(route.path, () => {
     return queryCollection('books').path(route.path).first()
 })
 
-
+useSeoMeta({
+  title: doc.value ? `${doc.value.title}` : 'Chris Rosser',
+  description: doc.value ? doc.value.description : '',
+})
 </script>
