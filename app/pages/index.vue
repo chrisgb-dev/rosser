@@ -6,8 +6,7 @@
                     class="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] tracking-tight mb-8 font-display uppercase">
                     Chris Rosser</h1>
                 <hr class="w-24 border-t-2 border-primary rounded-full my-8 opacity-60" />
-                <p class="line-height-3 text-2xl">Novels, essays, and serialised fiction<br />from the edge of myth,
-                    history and memory</p>
+                <p class="line-height-3 text-2xl">Novels, essays, and serialised fiction</p>
 
                 <div class="mt-12 flex flex-col sm:flex-row gap-4">
                     <UButton size="xl" to="/journal">Read the journal</UButton>
